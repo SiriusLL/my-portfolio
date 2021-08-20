@@ -3,9 +3,20 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  window.addEventListener("resize", showButton);
   return (
     <>
       <div className="navbar">
@@ -39,7 +50,7 @@ function NavBar() {
               </Link>
             </li>
           </ul>
-          {button && <Button>something</Button>}
+          {button && <Button buttonStyle="btn--outline">something</Button>}
         </div>
       </div>
     </>
