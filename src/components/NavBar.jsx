@@ -39,6 +39,7 @@ function NavBar() {
               </Link>
             </li>
           </ul>
+          {button && <Button>something</Button>}
         </div>
       </div>
     </>
